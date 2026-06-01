@@ -132,6 +132,45 @@ TARGET_URL = "http://localhost:3000"
 - **Hypothesis** (property-based fuzzer) independently confirmed `/rest/products/search` crashes on random string input — potential DoS vector
 - Root cause: Juice Shop intentionally lacks input sanitization to simulate real-world vulnerable apps
 
+## Binary Analysis Results — notepad.exe
+
+**Target:** `radare2/samples/notepad.exe` (Windows System Binary)
+**Date:** 2026-06-01
+**Tool:** `radare2/binary_analysis.py`
+**Engine:** r2pipe + radare2 6.1.4
+
+| Metric | Result |
+|---|---|
+| Format | PE (Windows Executable) |
+| Architecture | x86 / 64-bit |
+| Symbols Stripped | No — debug symbols present |
+| Functions Identified | 336 |
+| Dangerous APIs Found | 9 |
+| Report | `radare2/report_20260601_114814.json` |
+
+### Security Mitigations
+
+| Protection | Status | Risk |
+|---|---|---|
+| Stack Canary | ✅ Enabled | Buffer overflow detection active |
+| NX / DEP | ⚠️ Disabled | Stack/heap memory is executable |
+| PIE / ASLR | ⚠️ Disabled | Binary loads at fixed address — predictable |
+| RELOCS | ⚠️ None | No address randomization support |
+
+### Dangerous APIs Identified
+
+| API | Risk |
+|---|---|
+| `GetProcAddress` | Dynamic function resolution — used in code injection |
+| `LoadLibraryExW` | Loads external DLLs at runtime — DLL hijacking risk |
+| `ShellExecuteW` | Can launch external processes |
+| `GetStartupInfoW` | Leaks process startup context |
+| `GetSystemTimeAsFileTime` | Runtime info disclosure |
+| `WindowsGetStringRawBuffer` | Direct memory buffer access |
+
+### Key Finding
+NX and PIE both disabled means the binary loads at a **fixed, predictable memory address** with **executable stack/heap** — a significant attack surface for memory corruption exploits on older Windows versions.
+
 ## Notes
 
 This lab is intentionally defensive and educational. The goal is to build repeatable security testing workflows, document results, and improve detection coverage over time.

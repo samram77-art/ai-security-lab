@@ -1,61 +1,103 @@
 # AI Security Lab
 
-A hands-on lab for learning and demonstrating prompt injection risks, LLM guardrail bypasses, and practical defensive patterns for GenAI applications.
+A hands-on AI red teaming and security research lab for testing prompt injection, binary analysis, and fuzzing workflows.
 
-## Why this project
-This repo is designed to help security researchers, AI engineers, and pentesters understand how prompt injection works in real workflows. It includes a vulnerable mode, a defended mode, reusable attack payloads, and sample validation logic.
+## Overview
 
-## Features
-- Vulnerable prompt-processing flow for testing attacks
-- Defended mode with basic filtering and policy checks
-- Payload library for direct and indirect prompt injection
-- Simple JSON-based result logging
-- Starter tests and documentation
+This repository contains isolated Python environments and starter scripts for:
+- AI/LLM prompt injection testing with a local Ollama model.
+- Binary analysis with `r2pipe` and `radare2`.
+- HTTP fuzzing with `boofuzz` and `hypothesis`.
 
-## Repo structure
-```text
-ai-security-lab/
-├── app/
-│   ├── main.py
-│   ├── filters.py
-│   └── scenarios.py
-├── payloads/
-│   ├── direct_ignore.txt
-│   ├── direct_exfil.txt
-│   └── indirect_markdown.txt
-├── docs/
-│   ├── architecture.md
-│   └── roadmap.md
-├── tests/
-│   └── test_filters.py
-├── .gitignore
-├── requirements.txt
-└── README.md
+## Lab Structure
+
+| Module | Purpose | Key Tools |
+|---|---|---|
+| `pyrit/` | Prompt injection testing | OpenAI-compatible client, Ollama |
+| `radare2/` | Binary analysis | `r2pipe`, `radare2` |
+| `fuzzing/` | HTTP fuzzing | `boofuzz`, `hypothesis` |
+
+## Setup
+
+### PyRIT / Prompt Injection
+```powershell
+.\pyrit\.venv\Scripts\activate
+python pyrit\prompt_injection_test.py
 ```
 
-## Quick start
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python app/main.py --mode vulnerable --payload payloads/direct_ignore.txt
-python app/main.py --mode defended --payload payloads/direct_ignore.txt
+### Binary Analysis
+```powershell
+.\radare2\.venv\Scripts\activate
+python radare2\binary_analysis.py <path-to-binary>
 ```
 
-## Example use cases
-- Demonstrate direct prompt injection
-- Compare vulnerable vs defended handling
-- Expand the payload corpus for research
-- Add LLM API integration later
+### HTTP Fuzzing
+```powershell
+.\fuzzing\.venv\Scripts\activate
+python fuzzing\http_fuzz_test.py
+```
+
+## Ollama Configuration
+
+The prompt injection lab uses a local Ollama model through an OpenAI-compatible endpoint.
+
+`.env`:
+```env
+LLM_ENDPOINT=http://localhost:11434/v1
+MODEL_NAME=llama3.2:3b
+OPENAI_API_KEY=ollama
+```
+
+Start the model before running the script:
+
+```powershell
+ollama run llama3.2:3b
+```
+
+## Prompt Injection Results
+
+Model tested:
+- `llama3.2:3b` via Ollama on a local Windows machine
+
+Test summary:
+- Total payloads tested: 8
+- Vulnerabilities detected: 5/8
+- Report saved to: `pyrit/report_20260601_083944.json`
+
+### Notable Findings
+- A basic jailbreak payload returned `PWNED`.
+- A developer-mode prompt caused the model to comply with unsafe instructions.
+- The detection logic was improved after a false negative was identified.
+
+## Files Generated
+
+- `pyrit/prompt_injection_test.py`
+- `pyrit/report_20260601_082550.json`
+- `pyrit/report_20260601_083944.json`
+- `radare2/binary_analysis.py`
+- `fuzzing/http_fuzz_test.py`
+
+## Next Steps
+
+Planned additions:
+- Juice Shop target for `fuzzing/http_fuzz_test.py`
+- Expanded injection payload set for prompt testing
+- Real binary test samples for `radare2/binary_analysis.py`
+
+## Juice Shop Target
+
+Juice Shop can be run locally with Docker:
+
+```powershell
+docker run --rm -p 3000:3000 bkimminich/juice-shop
+```
+
+Then update `TARGET_URL` in `fuzzing/http_fuzz_test.py` to:
+
+```python
+TARGET_URL = "http://localhost:3000"
+```
 
 ## Notes
-This starter project uses a simulated engine so you can publish it safely without depending on paid APIs. You can later integrate OpenAI-compatible, Ollama, or local model backends.
 
-## Roadmap
-- Add real LLM provider adapters
-- Add HTML report output
-- Add attack scoring dashboard
-- Add RAG poisoning scenarios
-
-## Disclaimer
-Use this project only for legal, authorized security research and education.
+This lab is intentionally defensive and educational. The goal is to build repeatable security testing workflows, document results, and improve detection coverage over time.

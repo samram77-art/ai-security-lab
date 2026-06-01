@@ -1,0 +1,3 @@
+pyrit
+openai
+python-dotenv

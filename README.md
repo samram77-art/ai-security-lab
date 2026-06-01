@@ -98,6 +98,40 @@ Then update `TARGET_URL` in `fuzzing/http_fuzz_test.py` to:
 TARGET_URL = "http://localhost:3000"
 ```
 
+## HTTP Fuzzing Results — OWASP Juice Shop
+
+**Target:** OWASP Juice Shop (Docker — `bkimminich/juice-shop`)
+**Date:** 2026-06-01
+**Tool:** `fuzzing/http_fuzz_test.py`
+**Engine:** `requests` + `hypothesis` property-based fuzzing
+
+| Metric | Result |
+|---|---|
+| Total tests run | 170 (10 endpoints × 17 payloads) |
+| Anomalies detected | 90/170 (53%) |
+| Hypothesis crashes found | 1 (`/rest/products/search`) |
+| Report | `fuzzing/report_20260601_111729.json` |
+
+### Findings by Endpoint
+
+| Endpoint | Status | Finding | Severity |
+|---|---|---|---|
+| `/` | 200 | Error text in response — debug info leaking | Medium |
+| `/rest/user/login` | 500 | Crashes on all injection payloads — no sanitization | High |
+| `/rest/products/search` | 200/500 | Mixed crashes + Hypothesis DoS confirmed | High |
+| `/api/Users` | 401 | Stack trace leaked on every request | High |
+| `/rest/basket/1` | 401 | Stack trace leaked — information disclosure | High |
+| `/rest/qr-code` | 500 | Crashed on every single payload — fully unprotected | Critical |
+| `/rest/admin/application-configuration` | 200/500 | Mixed — some payloads trigger server errors | Medium |
+
+### Notable Findings
+
+- **`/rest/qr-code`** returned HTTP 500 on all 17 payloads — zero input validation
+- **`/api/Users` and `/rest/basket/1`** leaked stack traces on 401 responses — internal path disclosure
+- **`/rest/user/login`** returned 500 on SQL injection, command injection, and oversized input
+- **Hypothesis** (property-based fuzzer) independently confirmed `/rest/products/search` crashes on random string input — potential DoS vector
+- Root cause: Juice Shop intentionally lacks input sanitization to simulate real-world vulnerable apps
+
 ## Notes
 
 This lab is intentionally defensive and educational. The goal is to build repeatable security testing workflows, document results, and improve detection coverage over time.

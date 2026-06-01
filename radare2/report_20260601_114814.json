@@ -1,0 +1,113 @@
+{
+  "file_info": {
+    "arch": "x86",
+    "baddr": 5368709120,
+    "binsz": 18446744073709551614,
+    "bintype": "pe",
+    "bits": 64,
+    "canary": true,
+    "injprot": false,
+    "retguard": false,
+    "class": "PE32+",
+    "compiled": "Tue Jun 20 03:03:09 2028\n",
+    "compiler": "",
+    "crypto": false,
+    "dbg_file": "notepad.pdb",
+    "endian": "little",
+    "havecode": true,
+    "hdr.csum": "0x0003a52a",
+    "guid": "4906E170F6975C834C723793CE843E6C1",
+    "intrp": "",
+    "laddr": 0,
+    "lang": "c",
+    "linenum": false,
+    "lsyms": false,
+    "machine": "AMD 64",
+    "nx": false,
+    "os": "windows",
+    "overlay": true,
+    "cc": "ms",
+    "pic": false,
+    "relocs": false,
+    "rpath": "",
+    "signed": false,
+    "sanitize": false,
+    "static": false,
+    "stripped": false,
+    "uncaps": false,
+    "subsys": "Windows GUI",
+    "va": true,
+    "checksums": {}
+  },
+  "mitigations": {
+    "canary": true,
+    "nx": false,
+    "pie": false,
+    "relocs": false
+  },
+  "function_count": 336,
+  "top_functions": [
+    {
+      "name": "fcn.140011edc",
+      "size": 42510,
+      "offset": null
+    },
+    {
+      "name": "fcn.140008df0",
+      "size": 3956,
+      "offset": null
+    },
+    {
+      "name": "fcn.14000ef78",
+      "size": 2512,
+      "offset": null
+    },
+    {
+      "name": "fcn.14001d494",
+      "size": 2391,
+      "offset": null
+    },
+    {
+      "name": "fcn.14000e5c8",
+      "size": 2185,
+      "offset": null
+    },
+    {
+      "name": "fcn.140010868",
+      "size": 1437,
+      "offset": null
+    },
+    {
+      "name": "fcn.14001df3c",
+      "size": 1259,
+      "offset": null
+    },
+    {
+      "name": "fcn.140023268",
+      "size": 1060,
+      "offset": null
+    },
+    {
+      "name": "fcn.14001044c",
+      "size": 1045,
+      "offset": null
+    },
+    {
+      "name": "fcn.140004ca8",
+      "size": 1007,
+      "offset": null
+    }
+  ],
+  "dangerous_imports": [
+    "GetProcAddress",
+    "GetStartupInfoW",
+    "GetSubMenu",
+    "GetSystemMenu",
+    "GetSystemTimeAsFileTime",
+    "LoadLibraryExW",
+    "WindowsGetStringRawBuffer",
+    "GetSaveFileNameW",
+    "ShellExecuteW"
+  ],
+  "interesting_strings": []
+}
